@@ -196,6 +196,12 @@ const translations = {
     "inc.support": "24/7 հայալեզու աջակցություն",
     "inc.visa": "Վիզայի աջակցություն և հարցազրույցի նախապատրաստում",
     "inc.guide": "Տեղական ուղեկցորդ տուրերի ընթացքում",
+
+    // --- Service modal ---
+    "srvm.handled": "Ի՞նչ ենք ստանձնում",
+    "srvm.priceFrom": "Սկսած",
+    "srvm.cta": "Ստանալ առաջարկ",
+    "srvm.wa.prefill": "Բարև Soluna, ինձ հետաքրքրում է {service} ծառայությունը։",
   },
 
   en: {
@@ -368,6 +374,12 @@ const translations = {
     "inc.support": "24/7 Armenian-speaking support",
     "inc.visa": "Visa assistance & interview coaching",
     "inc.guide": "Local guide on tours",
+
+    // --- Service modal ---
+    "srvm.handled": "What we handle",
+    "srvm.priceFrom": "Starting from",
+    "srvm.cta": "Get a quote",
+    "srvm.wa.prefill": "Hi Soluna, I'm interested in your {service} service.",
   },
 } as const;
 
