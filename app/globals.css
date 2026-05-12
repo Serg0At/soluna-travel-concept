@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens — sampled from the Soluna Travel logo.
+ * Sol (orange) + Luna (white) over Sky (teal). White-dominant per brief.
+ */
+@theme {
+  --color-brand: #1B9FA6;
+  --color-brand-deep: #137278;
+  --color-brand-50: #E7F5F6;
+  --color-brand-100: #C5E7E9;
+
+  --color-sun: #F2901A;
+  --color-sun-deep: #C8740E;
+  --color-sun-50: #FEF3E5;
+
+  --color-ink: #0E2729;
+  --color-cream: #FBF8F4;
+  --color-muted: #6F8385;
+
+  --font-display: var(--font-display-stack);
+  --font-body: var(--font-body-stack);
+}
+
+/* Compose font stacks at :root so next/font CSS variables resolve correctly,
+   and so Armenian (HY) characters fall through to Noto Armenian automatically. */
+:root {
+  --font-display-stack: var(--font-fraunces), var(--font-noto-serif-arm), Georgia, "Times New Roman", serif;
+  --font-body-stack: var(--font-manrope), var(--font-noto-sans-arm), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  /* Default body bumped one tier — Manrope at 500 reads with more presence
+     than Inter at 400 while still being legible for long paragraphs. */
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings rendered with the display font (Fraunces) default to 400, which
+   was reading too light against the cream/white surfaces. 600 gives editorial
+   confidence without crossing into heavy/blocky. Tailwind classes like
+   `font-bold` on a specific heading still win. */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+/* Selection styling — pulls the brand teal */
+::selection {
+  background-color: var(--color-brand);
+  color: white;
+}
