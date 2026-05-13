@@ -39,7 +39,7 @@ const translations = {
     "hero.title.b": "մեր հոգսը։",
     "hero.subtitle":
       "Չվերթեր, վիզաներ, հյուրանոցներ ու մանրակրկիտ ընտրված փաթեթներ՝ ամբողջը կազմակերպում ենք Երևանից։ Մանր մանրուքները թողեք մեզ՝ դուք պարզապես վայելեք ուղևորությունը։",
-    "hero.cta.primary": "Ստանալ անվճար խորհրդատվություն",
+    "hero.cta.primary": "Տեսնել մոտակա տուրերը",
     "hero.cta.whatsapp": "Գրել WhatsApp-ով",
     "hero.trust":
       "✦ Պատասխանում ենք 24 ժամվա ընթացքում · Մեր պատասխանատվությամբ · IATA-ի գործընկեր ավիաընկերություններ",
@@ -240,7 +240,7 @@ const translations = {
     "hero.title.b": "handled.",
     "hero.subtitle":
       "Flights, visas, hotels and curated packages — booked end-to-end from Yerevan. We sweat the small stuff so you don't.",
-    "hero.cta.primary": "Get a free quote",
+    "hero.cta.primary": "See upcoming tours",
     "hero.cta.whatsapp": "Message on WhatsApp",
     "hero.trust": "✦ Reply within 24h · No obligation · IATA-partner airlines",
 

@@ -59,7 +59,7 @@ export function Hero() {
             className="mt-10 flex flex-wrap gap-3"
           >
             <a
-              href="#contact"
+              href="/tours"
               className="inline-flex items-center gap-2 bg-sun hover:bg-sun-deep transition-colors text-white px-7 py-4 rounded-full font-semibold shadow-lg shadow-sun/20"
             >
               {t("hero.cta.primary")}
