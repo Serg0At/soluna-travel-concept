@@ -21,10 +21,11 @@ export function Footer() {
               {t("footer.explore")}
             </p>
             <ul className="mt-4 space-y-2.5 text-white/90 text-sm">
-              <li><a href="#services" className="hover:text-sun transition-colors">{t("nav.services")}</a></li>
-              <li><a href="#destinations" className="hover:text-sun transition-colors">{t("nav.destinations")}</a></li>
-              <li><a href="#about" className="hover:text-sun transition-colors">{t("nav.about")}</a></li>
-              <li><a href="#contact" className="hover:text-sun transition-colors">{t("nav.contact")}</a></li>
+              <li><a href="/#services" className="hover:text-sun transition-colors">{t("nav.services")}</a></li>
+              <li><a href="/#destinations" className="hover:text-sun transition-colors">{t("nav.destinations")}</a></li>
+              <li><a href="/tours" className="hover:text-sun transition-colors">{t("nav.tours")}</a></li>
+              <li><a href="/#about" className="hover:text-sun transition-colors">{t("nav.about")}</a></li>
+              <li><a href="/#contact" className="hover:text-sun transition-colors">{t("nav.contact")}</a></li>
             </ul>
           </div>
 

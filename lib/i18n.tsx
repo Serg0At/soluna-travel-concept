@@ -27,6 +27,7 @@ const translations = {
     // --- Nav ---
     "nav.destinations": "Ուղղություններ",
     "nav.services": "Ծառայություններ",
+    "nav.tours": "Տուրեր",
     "nav.about": "Մեր մասին",
     "nav.contact": "Կապ",
     "nav.cta": "Ստանալ գին",
@@ -202,12 +203,32 @@ const translations = {
     "srvm.priceFrom": "Սկսած",
     "srvm.cta": "Ստանալ առաջարկ",
     "srvm.wa.prefill": "Բարև Soluna, ինձ հետաքրքրում է {service} ծառայությունը։",
+
+    // --- Tours page ---
+    "tours.eyebrow": "Մոտակա մեկնումներ",
+    "tours.title.a": "Մեր հաջորդ",
+    "tours.title.b": "խմբային տուրերը։",
+    "tours.subtitle":
+      "Փոքր խմբեր՝ հայալեզու ուղեկցորդով։ 8–15 ճանապարհորդ։ Միացեք այլ մարդկանց, ովքեր ճանապարհորդության մասին մտածում են ձեզ նման։",
+    "tours.spotsLeft": "{n} տեղ ազատ",
+    "tours.spotsLeft.one": "Մնացել է 1 տեղ",
+    "tours.limited": "Մնացել են քիչ տեղեր",
+    "tours.soldout": "Տեղերը վերջացել են",
+    "tours.priceFrom": "Սկսած",
+    "tours.cta": "Ամրագրել տեղս",
+    "tours.cta.soldout": "Միանալ սպասման ցուցակին",
+    "tours.days": "օր",
+    "tours.empty.title": "Այս պահին նոր մեկնում չկա։",
+    "tours.empty.sub": "Գրեք մեզ, և տեղեկացնենք, երբ նոր ուղևորություն պլանավորվի։",
+    "tours.wa.prefill": "Բարև Soluna, ուզում եմ ամրագրել տեղ {city} տուրում ({dates}):",
+    "tours.wa.waitlist": "Բարև Soluna, ուզում եմ միանալ {city} տուրի սպասման ցուցակին ({dates}):",
   },
 
   en: {
     // --- Nav ---
     "nav.destinations": "Destinations",
     "nav.services": "Services",
+    "nav.tours": "Tours",
     "nav.about": "About",
     "nav.contact": "Contact",
     "nav.cta": "Get a quote",
@@ -380,6 +401,25 @@ const translations = {
     "srvm.priceFrom": "Starting from",
     "srvm.cta": "Get a quote",
     "srvm.wa.prefill": "Hi Soluna, I'm interested in your {service} service.",
+
+    // --- Tours page ---
+    "tours.eyebrow": "Upcoming departures",
+    "tours.title.a": "Our next",
+    "tours.title.b": "small-group tours.",
+    "tours.subtitle":
+      "Small groups, Armenian-speaking guides. 8–15 travelers per departure. Join other people who think about travel the way you do.",
+    "tours.spotsLeft": "{n} spots left",
+    "tours.spotsLeft.one": "Only 1 spot left",
+    "tours.limited": "A few spots left",
+    "tours.soldout": "Sold out",
+    "tours.priceFrom": "From",
+    "tours.cta": "Reserve my spot",
+    "tours.cta.soldout": "Join the waitlist",
+    "tours.days": "days",
+    "tours.empty.title": "No departures scheduled right now.",
+    "tours.empty.sub": "Send us a note and we'll tell you when the next trip opens.",
+    "tours.wa.prefill": "Hi Soluna, I'd like to reserve a spot on the {city} tour ({dates}).",
+    "tours.wa.waitlist": "Hi Soluna, I'd like to join the waitlist for the {city} tour ({dates}).",
   },
 } as const;
 
