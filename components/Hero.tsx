@@ -37,7 +37,13 @@ export function Hero() {
           <p className="text-sun text-xs md:text-sm uppercase tracking-[0.3em] font-semibold mb-5">
             {t("hero.eyebrow")}
           </p>
-          <h1 className="font-display text-white text-[2.5rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.05] tracking-tight">
+          {/*
+            H1 sizing tuned for Armenian. The HY word `ուղևորությունը` is
+            ~12 chars with no break points; at 40px on a 360px phone it
+            overflows. Default size dropped to 28px and `break-words` is on
+            so any future longer compound word can wrap as a fallback.
+          */}
+          <h1 className="font-display text-white text-[1.75rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] leading-[1.15] sm:leading-[1.05] tracking-tight break-words">
             {t("hero.title.a")}
             <br />
             <span className="italic font-light text-cream/95">{t("hero.title.b")}</span>

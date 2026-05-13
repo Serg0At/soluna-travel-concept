@@ -30,19 +30,19 @@ const translations = {
     "nav.tours": "Տուրեր",
     "nav.about": "Մեր մասին",
     "nav.contact": "Կապ",
-    "nav.cta": "Ստանալ գին",
-    "nav.cta.mobile": "Ստանալ գին WhatsApp-ով",
+    "nav.cta": "Կապնվել",
+    "nav.cta.mobile": "Ստանալ ինֆորմացիա WhatsApp-ով",
 
     // --- Hero ---
     "hero.eyebrow": "Soluna Travel · Երևան, Հայաստան",
-    "hero.title.a": "Ձեր հաջորդ ճանապարհորդությունը՝",
+    "hero.title.a": "Ձեր հաջորդ ուղևորությունը՝",
     "hero.title.b": "մեր հոգսը։",
     "hero.subtitle":
       "Չվերթեր, վիզաներ, հյուրանոցներ ու մանրակրկիտ ընտրված փաթեթներ՝ ամբողջը կազմակերպում ենք Երևանից։ Մանր մանրուքները թողեք մեզ՝ դուք պարզապես վայելեք ուղևորությունը։",
-    "hero.cta.primary": "Անվճար հաշվարկ ստանալ",
+    "hero.cta.primary": "Ստանալ անվճար խորհրդատվություն",
     "hero.cta.whatsapp": "Գրել WhatsApp-ով",
     "hero.trust":
-      "✦ Պատասխանում ենք 24 ժամվա ընթացքում · Առանց պարտավորության · IATA-ի գործընկեր ավիաընկերություններ",
+      "✦ Պատասխանում ենք 24 ժամվա ընթացքում · Մեր պատասխանատվությամբ · IATA-ի գործընկեր ավիաընկերություններ",
 
     // --- Services ---
     "services.eyebrow": "Ինչ ենք առաջարկում",
@@ -144,38 +144,38 @@ const translations = {
     // --- Contact ---
     "contact.eyebrow": "Կապ մեզ հետ",
     "contact.title.a": "Ասեք՝ ուր եք գնում։",
-    "contact.title.b": "24 ժամում գին կտանք։",
+    "contact.title.b": "Կպատասխանենք արագ։",
     "contact.subtitle":
-      "Ոչ զանգերի կենտրոն, ոչ բոտ։ Իրական մարդ կկարդա ձեր հաղորդագրությունն ու կպատասխանի՝ տարբերակներով, գներով և հաջորդ քայլերով։",
+      "Ոչ զանգերի կենտրոն, ոչ էլ բոտ։ Իրական մարդը կկարդա ձեր հաղորդագրությունն ու կպատասխանի՝ առաջարկներով, գներով և հաջորդող քայլերով։",
     "contact.wa.title": "WhatsApp",
-    "contact.wa.sub": "Ամենաարագ եղանակը՝ սովորաբար 30 րոպեից պակաս",
-    "contact.ig.sub": "Գրեք մեզ՝ նախ նայեք մեր անցյալ ուղևորությունները",
+    "contact.wa.sub": "Ամենաարագ եղանակը",
+    "contact.ig.sub": "Նաև նայեք մեր նախորդ ուղևորությունները",
     "contact.phone.sub": "Երկ–Շբթ, 10:00–19:00 (UTC+4)",
     "contact.form.title": "Հարցում գնի մասին",
     "contact.form.note": "Ուղարկելիս կբացվի WhatsApp՝ ձեր տվյալներով արդեն լրացված։",
     "contact.form.name": "Ձեր անունը",
     "contact.form.name.ph": "օրինակ՝ Աննա Հովհաննիսյան",
     "contact.form.dest": "Ուղղություն",
-    "contact.form.dest.ph": "օրինակ՝ Դուբայ կամ «մարտին տաք տեղ»",
+    "contact.form.dest.ph": "օրինակ՝ Դուբայ կամ «մարտ ամսին տաք տեղ»",
     "contact.form.dates": "Ամսաթվեր",
     "contact.form.dates.ph": "օրինակ՝ մարտի 15–22",
     "contact.form.msg": "Հավելյալ տեղեկություն",
     "contact.form.msg.ph": "Ճանապարհորդների քանակ, բյուջե, կարևոր մանրամասներ...",
     "contact.form.submit": "Ուղարկել WhatsApp-ով",
     "contact.wa.prefill":
-      "Բարև Soluna, ուզում եմ գնի հարցում անել։\n\nԱնուն՝ {name}\nՈւղղություն՝ {destination}\nԱմսաթվեր՝ {dates}\n\n{message}",
+      "Բարև ձեզ, ուզում եմ գնի հարցում անել։\n\nԱնուն՝ {name}\nՈւղղություն՝ {destination}\nԱմսաթվեր՝ {dates}\n\n{message}",
 
     // --- Footer ---
     "footer.tagline":
       "Արտերկիր ուղևորությունների գործակալություն Երևանում։ Ամեն շաբաթ նոր ճանապարհորդություն ենք կազմակերպում։",
     "footer.explore": "Բաժիններ",
-    "footer.reach": "Կապվեք մեզ հետ",
+    "footer.reach": "Կապնվեք մեզ հետ",
     "footer.address": "Երևան, Հայաստան",
     "footer.rights": "Բոլոր իրավունքները պաշտպանված են։",
     "footer.author": "Կայքի հեղինակ՝",
 
     // --- WhatsApp float ---
-    "wa.float.prefill": "Բարև Soluna, ինձ հետաքրքրում է ուղևորությունը...",
+    "wa.float.prefill": "Բարև ձեզ, ինձ հետաքրքրում է ուղևորությունը...",
 
     // --- Destination modal ---
     "modal.from": "Սկսած",
@@ -202,7 +202,7 @@ const translations = {
     "srvm.handled": "Ի՞նչ ենք ստանձնում",
     "srvm.priceFrom": "Սկսած",
     "srvm.cta": "Ստանալ առաջարկ",
-    "srvm.wa.prefill": "Բարև Soluna, ինձ հետաքրքրում է {service} ծառայությունը։",
+    "srvm.wa.prefill": "Բարև ձեզ, ինձ հետաքրքրում է {service} ծառայությունը։",
 
     // --- Tours page ---
     "tours.eyebrow": "Մոտակա մեկնումներ",
@@ -215,13 +215,13 @@ const translations = {
     "tours.limited": "Մնացել են քիչ տեղեր",
     "tours.soldout": "Տեղերը վերջացել են",
     "tours.priceFrom": "Սկսած",
-    "tours.cta": "Ամրագրել տեղս",
+    "tours.cta": "ամրագրել տեղ",
     "tours.cta.soldout": "Միանալ սպասման ցուցակին",
     "tours.days": "օր",
     "tours.empty.title": "Այս պահին նոր մեկնում չկա։",
-    "tours.empty.sub": "Գրեք մեզ, և տեղեկացնենք, երբ նոր ուղևորություն պլանավորվի։",
-    "tours.wa.prefill": "Բարև Soluna, ուզում եմ ամրագրել տեղ {city} տուրում ({dates}):",
-    "tours.wa.waitlist": "Բարև Soluna, ուզում եմ միանալ {city} տուրի սպասման ցուցակին ({dates}):",
+    "tours.empty.sub": "Գրեք մեզ, և կտեղեկացնենք, երբ նոր ուղևորություն պլանավորվի։",
+    "tours.wa.prefill": "Բարև ձեզ, ուզում եմ ամրագրել տեղ {city} տուրում ({dates}):",
+    "tours.wa.waitlist": "Բարև ձեզ, ուզում եմ միանալ {city} տուրի սպասման ցուցակին ({dates}):",
   },
 
   en: {

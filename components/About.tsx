@@ -71,13 +71,19 @@ export function About() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="lg:pt-4"
           >
-            <div className="grid grid-cols-3 gap-px bg-brand/15 rounded-2xl overflow-hidden border border-brand/15">
+            {/*
+              Stats strip. Stacks vertically on phone (where Armenian labels
+              like "Բավարարված ճանապարհորդ" don't fit a 1/3-width column),
+              splits into 3 columns at sm: and up. `break-words` on the label
+              is a safety net for any compound word that still wouldn't fit.
+            */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-brand/15 rounded-2xl overflow-hidden border border-brand/15">
               {stats.map((s) => (
                 <div key={s.labelKey} className="bg-white p-6 md:p-8 text-center">
                   <div className="font-display text-4xl md:text-5xl text-brand-deep leading-none tracking-tight">
                     {s.value}
                   </div>
-                  <div className="mt-3 text-xs md:text-sm text-muted leading-snug">
+                  <div className="mt-3 text-xs md:text-sm text-muted leading-snug break-words">
                     {t(s.labelKey)}
                   </div>
                 </div>
