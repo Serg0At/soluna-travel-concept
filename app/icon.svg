@@ -1,0 +1,22 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Soluna Travel">
+  <!--
+    Favicon — simplified Soluna brand mark.
+
+    Strategy: the wordmark "SOLUNA TRAVEL" is unreadable at 16×16, so the
+    favicon distills the logo to its recognizable elements:
+      - the teal disc background
+      - the orange sun + thin white moon-crescent (the distinctive "O" glyph)
+
+    Reads well at 16, 32, and 192px. Next.js auto-routes app/icon.svg into
+    <link rel="icon"> on every page.
+  -->
+
+  <!-- Teal background, rounded square -->
+  <rect width="64" height="64" rx="14" fill="#1B9FA6"/>
+
+  <!-- Sun-disc (orange) -->
+  <circle cx="27" cy="32" r="13" fill="#F2901A"/>
+
+  <!-- Moon-crescent (white thin ring, offset right so it hugs the sun) -->
+  <circle cx="38" cy="32" r="11.5" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
