@@ -165,7 +165,11 @@ const translations = {
     "contact.form.dest": "Ուղղություն",
     "contact.form.dest.ph": "օր.՝ Դուբայ կամ «մարտ ամսին տաք տեղ»",
     "contact.form.startDate": "Մեկնման ամսաթիվ",
-    "contact.form.startDate.ph": "Ընտրել օրացույցից",
+    "contact.form.startDate.ph": "Ընտրել օրն ու ամիսը",
+    "contact.form.startDay": "Մեկնման օր",
+    "contact.form.startDay.ph": "Օր",
+    "contact.form.startMonth": "Մեկնման ամիս",
+    "contact.form.startMonth.ph": "Ամիս",
     "contact.form.endDate": "Վերջնա",
     "contact.form.endDate.ph": "Ընտրել օրացույցից",
     "contact.form.nights": "Օրերի քանակը",
@@ -183,8 +187,15 @@ const translations = {
     "contact.form.msg.ph": "Ճանապարհորդների քանակ, բյուջե, կարևոր մանրամասներ...",
     "contact.form.submit": "Ուղարկել WhatsApp-ով",
     "common.optional": "ոչ պարտադիր",
+    "wa.label.destination": "Ուղղություն",
+    "wa.label.startDate": "Մեկնման ամսաթիվ",
+    "wa.label.nights": "Գիշերներ",
+    "wa.label.people": "Անձինք",
+    "wa.label.meals": "Սնունդ",
+    "wa.label.hotel": "Նախընտրած հյուրանոց",
+    "wa.label.budget": "Բյուջե",
     "contact.wa.prefill":
-      "Բարև ձեզ, ուզում եմ գնի հարցում անել։\n\nՈւղղություն՝ {destination}\nՀաշվելի ամսաթիվ՝ {startDate}\nՀաշվարկի ամսաթիվ՝ {endDate}\nԳիշերների քանակ՝ {nights}\nԱնձինք՝ {people}\nՍնունդ՝ {meals}\nՆախընտրած հյուրանոց՝ {hotel}\nԲյուջե՝ {budget}",
+      "Բարև ձեզ, ուզում եմ գնի հարցում անել իմ պլանավորած ուղղևորության վերաբերյալ։\n\nՈւղղությունը՝ {destination}\n\nՄեկնման ամսաթիվը՝ {startDate}\n\nԳիշերների քանակը՝ {nights}\n\nԱնձինք՝ {people}\n\nՍնունդ՝ {meals}\n\nՆախընտրած հյուրանոց՝ {hotel}\n\nԲյուջե՝ {budget}",
 
     // --- Footer ---
     "footer.tagline":
@@ -208,7 +219,7 @@ const translations = {
     "modal.book": "Ստանալ գին այս ուղևորության համար",
     "modal.close": "Փակել",
     "modal.priceNote": "1 անձի, երկտեղանի սենյակում",
-    "modal.wa.prefill": "Բարև Soluna, ինձ հետաքրքրում է {city}-ի ուղևորությունը (սկսած ${price}-ից):",
+    "modal.wa.prefill": "Բարև ձեզ, ինձ հետաքրքրում է {city}-ի ուղևորությունը (սկսած ${price}-ից):",
 
     // --- Shared includes (used across destinations) ---
     "inc.flight": "Երթևեկ չվերթ Երևանից",
@@ -384,7 +395,11 @@ const translations = {
     "contact.form.dest": "Destination",
     "contact.form.dest.ph": "e.g. Dubai, or 'somewhere warm in March'",
     "contact.form.startDate": "Start date",
-    "contact.form.startDate.ph": "Pick from calendar",
+    "contact.form.startDate.ph": "Choose day and month",
+    "contact.form.startDay": "Start day",
+    "contact.form.startDay.ph": "Day",
+    "contact.form.startMonth": "Start month",
+    "contact.form.startMonth.ph": "Month",
     "contact.form.endDate": "End date",
     "contact.form.endDate.ph": "Pick from calendar",
     "contact.form.nights": "Number of nights",
@@ -402,8 +417,15 @@ const translations = {
     "contact.form.msg.ph": "Travelers, budget range, must-haves...",
     "contact.form.submit": "Send via WhatsApp",
     "common.optional": "optional",
+    "wa.label.destination": "Destination",
+    "wa.label.startDate": "Start date",
+    "wa.label.nights": "Nights",
+    "wa.label.people": "Travelers",
+    "wa.label.meals": "Meals",
+    "wa.label.hotel": "Hotel",
+    "wa.label.budget": "Budget",
     "contact.wa.prefill":
-      "Hi Soluna! I'd like a quote.\n\nDestination: {destination}\nStart date: {startDate}\nEnd date: {endDate}\nNights: {nights}\nTravelers: {people}\nMeals: {meals}\nHotel: {hotel}\nBudget: {budget}",
+      "Hi Soluna! I'd like a quote.\n\nDestination: {destination}\nStart date: {startDate}\nNights: {nights}\nTravelers: {people}\nMeals: {meals}\nHotel: {hotel}\nBudget: {budget}",
 
     // --- Footer ---
     "footer.tagline":

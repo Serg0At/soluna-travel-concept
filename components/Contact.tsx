@@ -26,11 +26,12 @@ const PHONE_DISPLAY = "+374 91 341 143";
 const INSTAGRAM = "soluna_travel";
 
 export function Contact() {
-  const { t } = useT();
+  const { t, locale } = useT();
   const [isMobile, setIsMobile] = useState(false);
   const [form, setForm] = useState({
     destination: "",
-    startDate: "",
+    startDay: "",
+    startMonth: "",
     nights: "",
     people: "",
     meals: "",
@@ -45,13 +46,21 @@ export function Contact() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const handleDateChange = (value: string) => {
-    setForm({ ...form, startDate: value });
-  };
-
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    const text = encodeURIComponent(t("contact.wa.prefill", form));
+    const startDate = formatStartDate(form.startDay, form.startMonth, locale);
+    const text = encodeURIComponent(
+      t("contact.wa.prefill", {
+        destination: form.destination,
+        startDate,
+        nights: form.nights,
+        people: form.people,
+        meals: form.meals,
+        hotel: form.hotel,
+        budget: form.budget,
+      })
+    );
+
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
   }
 
@@ -150,7 +159,7 @@ export function Contact() {
 
             <div className="mt-6 space-y-4">
               <Field
-                t={t}
+                t={t as any}
                 label={t("contact.form.dest")}
                 value={form.destination}
                 onChange={(v) => setForm({ ...form, destination: v })}
@@ -158,10 +167,12 @@ export function Contact() {
               />
               <div className="grid grid-cols-1 gap-4">
                 <DateField
+                  t={t as any}
+                  locale={locale}
                   label={t("contact.form.startDate")}
-                  value={form.startDate}
-                  onChange={handleDateChange}
-                  placeholder={t("contact.form.startDate.ph")}
+                  day={form.startDay}
+                  month={form.startMonth}
+                  onChange={(startDay, startMonth) => setForm({ ...form, startDay, startMonth })}
                 />
               </div>
               <NightsSelector
@@ -171,7 +182,7 @@ export function Contact() {
                 placeholder={t("contact.form.nights.ph")}
               />
               <Field
-                t={t}
+                t={t as any}
                 label={t("contact.form.people")}
                 value={form.people}
                 onChange={(v) => setForm({ ...form, people: v })}
@@ -180,14 +191,14 @@ export function Contact() {
                 rows={2}
               />
               <Field
-                t={t}
+                t={t as any}
                 label={t("contact.form.meals")}
                 value={form.meals}
                 onChange={(v) => setForm({ ...form, meals: v })}
                 placeholder={t("contact.form.meals.ph")}
               />
               <Field
-                t={t}
+                t={t as any}
                 label={t("contact.form.hotel")}
                 value={form.hotel}
                 onChange={(v) => setForm({ ...form, hotel: v })}
@@ -195,7 +206,7 @@ export function Contact() {
                 optional
               />
               <Field
-                t={t}
+                t={t as any}
                 label={t("contact.form.budget")}
                 value={form.budget}
                 onChange={(v) => setForm({ ...form, budget: v })}
@@ -230,7 +241,7 @@ function Field({
   rows = 2,
   optional,
 }: {
-  t: (key: string) => string;
+  t: (key: string, vars?: Record<string, string>) => string;
   label: string;
   value: string;
   onChange: (v: string) => void;
@@ -266,30 +277,109 @@ function Field({
   );
 }
 
+const MONTH_MAX_DAYS = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+const HY_MONTHS_GENITIVE = [
+  "Հունվարի",
+  "Փետրվարի",
+  "Մարտի",
+  "Ապրիլի",
+  "Մայիսի",
+  "Հունիսի",
+  "Հուլիսի",
+  "Օգոստոսի",
+  "Սեպտեմբերի",
+  "Հոկտեմբերի",
+  "Նոյեմբերի",
+  "Դեկտեմբերի",
+];
+
+function formatStartDate(day: string, month: string, locale: "hy" | "en") {
+  if (locale === "hy") {
+    const monthName = month ? HY_MONTHS_GENITIVE[Number(month) - 1] : "";
+
+    return [monthName, day].filter(Boolean).join(" ");
+  }
+
+  const monthNumber = Number(month);
+  const monthName = month
+    ? new Intl.DateTimeFormat("en-US", { month: "long", timeZone: "UTC" }).format(
+        new Date(Date.UTC(2026, monthNumber - 1, 1))
+      )
+    : "";
+
+  if (day && monthName) {
+    return `${monthName} ${day}`;
+  }
+
+  return [monthName, day].filter(Boolean).join(" ");
+}
+
 function DateField({
+  t,
+  locale,
   label,
-  value,
+  day,
+  month,
   onChange,
-  placeholder,
 }: {
+  t: (key: string, vars?: Record<string, string>) => string;
+  locale: "hy" | "en";
   label: string;
-  value: string;
-  onChange: (v: string) => void;
-  placeholder?: string;
+  day: string;
+  month: string;
+  onChange: (day: string, month: string) => void;
 }) {
+  const maxDays = month ? MONTH_MAX_DAYS[Number(month) - 1] : 31;
+  const days = Array.from({ length: maxDays }, (_, index) => (index + 1).toString());
+  const months = Array.from({ length: 12 }, (_, index) => {
+    const monthNumber = index + 1;
+    const label = new Intl.DateTimeFormat(locale === "hy" ? "hy-AM" : "en-US", {
+      month: "long",
+      timeZone: "UTC",
+    }).format(new Date(Date.UTC(2026, index, 1)));
+
+    return { value: monthNumber.toString(), label };
+  });
+
   return (
     <div>
       <label className="block text-xs uppercase tracking-[0.2em] text-muted font-semibold mb-2">
         {label}
       </label>
-      <input
-        type="date"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-        title={label}
-        className="w-full px-4 py-3 rounded-xl bg-white border border-brand/15 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 text-ink placeholder:text-muted/60"
-      />
+      <div className="grid grid-cols-2 gap-3">
+        <select
+          value={day}
+          onChange={(e) => onChange(e.target.value, month)}
+          aria-label={t("contact.form.startDay")}
+          className="w-full px-4 py-3 rounded-xl bg-white border border-brand/15 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 text-ink"
+        >
+          <option value="">{t("contact.form.startDay.ph")}</option>
+          {days.map((dayOption) => (
+            <option key={dayOption} value={dayOption}>
+              {dayOption}
+            </option>
+          ))}
+        </select>
+        <select
+          value={month}
+          onChange={(e) => {
+            const nextMonth = e.target.value;
+            const nextMaxDays = nextMonth ? MONTH_MAX_DAYS[Number(nextMonth) - 1] : 31;
+            const nextDay = Number(day) > nextMaxDays ? nextMaxDays.toString() : day;
+
+            onChange(nextDay, nextMonth);
+          }}
+          aria-label={t("contact.form.startMonth")}
+          className="w-full px-4 py-3 rounded-xl bg-white border border-brand/15 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 text-ink"
+        >
+          <option value="">{t("contact.form.startMonth.ph")}</option>
+          {months.map((monthOption) => (
+            <option key={monthOption.value} value={monthOption.value}>
+              {monthOption.label}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 }
