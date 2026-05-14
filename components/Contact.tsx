@@ -1,8 +1,25 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import { motion } from "motion/react";
 import { useT } from "@/lib/i18n";
+
+/**
+ * Contact section — multi-channel block (left) + inquiry form (right).
+ *
+ * Form fields are specified by the agency: destination, dates+nights,
+ * travelers (with children's ages), meal preference, hotel preference + budget.
+ * Long-context fields use a textarea so users can paste full requirements.
+ *
+ * Submit doesn't POST anywhere — it opens WhatsApp with all values pre-filled,
+ * because:
+ *   1. We're static-exported (output: "export"), no API routes.
+ *   2. For Armenian SMB travel, WhatsApp IS the deal-closing channel; a form
+ *      emailing the agent and sitting in spam for 4 days is worse than zero.
+ *
+ * If a Formspree/EmailJS/Cloudflare-Worker endpoint is wired later, replace
+ * `handleSubmit` and keep this UI shell.
+ */
 
 const WHATSAPP_NUMBER = "37491341143";
 const PHONE_DISPLAY = "+374 91 341 143";
@@ -10,23 +27,31 @@ const INSTAGRAM = "soluna_travel";
 
 export function Contact() {
   const { t } = useT();
+  const [isMobile, setIsMobile] = useState(false);
   const [form, setForm] = useState({
-    name: "",
     destination: "",
-    dates: "",
-    message: "",
+    startDate: "",
+    nights: "",
+    people: "",
+    meals: "",
+    hotel: "",
+    budget: "",
   });
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const handleDateChange = (value: string) => {
+    setForm({ ...form, startDate: value });
+  };
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    const text = encodeURIComponent(
-      t("contact.wa.prefill", {
-        name: form.name,
-        destination: form.destination,
-        dates: form.dates,
-        message: form.message,
-      })
-    );
+    const text = encodeURIComponent(t("contact.wa.prefill", form));
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
   }
 
@@ -125,35 +150,58 @@ export function Contact() {
 
             <div className="mt-6 space-y-4">
               <Field
-                label={t("contact.form.name")}
-                value={form.name}
-                onChange={(v) => setForm({ ...form, name: v })}
-                placeholder={t("contact.form.name.ph")}
-              />
-              <Field
+                t={t}
                 label={t("contact.form.dest")}
                 value={form.destination}
                 onChange={(v) => setForm({ ...form, destination: v })}
                 placeholder={t("contact.form.dest.ph")}
               />
-              <Field
-                label={t("contact.form.dates")}
-                value={form.dates}
-                onChange={(v) => setForm({ ...form, dates: v })}
-                placeholder={t("contact.form.dates.ph")}
-              />
-              <div>
-                <label className="block text-xs uppercase tracking-[0.2em] text-muted font-semibold mb-2">
-                  {t("contact.form.msg")}
-                </label>
-                <textarea
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  rows={3}
-                  placeholder={t("contact.form.msg.ph")}
-                  className="w-full px-4 py-3 rounded-xl bg-white border border-brand/15 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 text-ink placeholder:text-muted/60 resize-none"
+              <div className="grid grid-cols-1 gap-4">
+                <DateField
+                  label={t("contact.form.startDate")}
+                  value={form.startDate}
+                  onChange={handleDateChange}
+                  placeholder={t("contact.form.startDate.ph")}
                 />
               </div>
+              <NightsSelector
+                label={t("contact.form.nights")}
+                value={form.nights}
+                onChange={(v) => setForm({ ...form, nights: v })}
+                placeholder={t("contact.form.nights.ph")}
+              />
+              <Field
+                t={t}
+                label={t("contact.form.people")}
+                value={form.people}
+                onChange={(v) => setForm({ ...form, people: v })}
+                placeholder={t("contact.form.people.ph")}
+                multiline
+                rows={2}
+              />
+              <Field
+                t={t}
+                label={t("contact.form.meals")}
+                value={form.meals}
+                onChange={(v) => setForm({ ...form, meals: v })}
+                placeholder={t("contact.form.meals.ph")}
+              />
+              <Field
+                t={t}
+                label={t("contact.form.hotel")}
+                value={form.hotel}
+                onChange={(v) => setForm({ ...form, hotel: v })}
+                placeholder={t("contact.form.hotel.ph")}
+                optional
+              />
+              <Field
+                t={t}
+                label={t("contact.form.budget")}
+                value={form.budget}
+                onChange={(v) => setForm({ ...form, budget: v })}
+                placeholder={isMobile ? t("contact.form.budget.ph.mobile") : t("contact.form.budget.ph")}
+                optional
+              />
             </div>
 
             <button
@@ -173,6 +221,52 @@ export function Contact() {
 }
 
 function Field({
+  t,
+  label,
+  value,
+  onChange,
+  placeholder,
+  multiline,
+  rows = 2,
+  optional,
+}: {
+  t: (key: string) => string;
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  placeholder?: string;
+  multiline?: boolean;
+  rows?: number;
+  optional?: boolean;
+}) {
+  return (
+    <div>
+      <label className="block text-xs uppercase tracking-[0.2em] text-muted font-semibold mb-2">
+        {label}
+        {optional && <span className="text-muted/60 font-normal ml-1">({t("common.optional")})</span>}
+      </label>
+      {multiline ? (
+        <textarea
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          rows={rows}
+          placeholder={placeholder}
+          className="w-full px-4 py-3 rounded-xl bg-white border border-brand/15 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 text-ink placeholder:text-muted/60 resize-none"
+        />
+      ) : (
+        <input
+          type="text"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder={placeholder}
+          className="w-full px-4 py-3 rounded-xl bg-white border border-brand/15 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 text-ink placeholder:text-muted/60"
+        />
+      )}
+    </div>
+  );
+}
+
+function DateField({
   label,
   value,
   onChange,
@@ -189,10 +283,59 @@ function Field({
         {label}
       </label>
       <input
-        type="text"
+        type="date"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
+        title={label}
+        className="w-full px-4 py-3 rounded-xl bg-white border border-brand/15 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 text-ink placeholder:text-muted/60"
+      />
+    </div>
+  );
+}
+
+function NightsSelector({
+  label,
+  value,
+  onChange,
+  placeholder,
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  placeholder?: string;
+}) {
+  const presets = [4, 7, 14, 21];
+
+  return (
+    <div>
+      <label className="block text-xs uppercase tracking-[0.2em] text-muted font-semibold mb-2">
+        {label}
+      </label>
+      <div className="flex flex-wrap gap-2 mb-3">
+        {presets.map((nights) => (
+          <button
+            key={nights}
+            type="button"
+            onClick={() => onChange(nights.toString())}
+            className={`px-3 py-2 rounded-lg text-xs font-semibold transition-all ${
+              value === nights.toString()
+                ? "bg-brand text-white"
+                : "bg-cream text-ink border border-brand/20 hover:border-brand hover:bg-brand-50"
+            }`}
+          >
+            {nights}
+          </button>
+        ))}
+      </div>
+      <input
+        type="number"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
+        title={label}
+        min="1"
+        max="365"
         className="w-full px-4 py-3 rounded-xl bg-white border border-brand/15 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 text-ink placeholder:text-muted/60"
       />
     </div>

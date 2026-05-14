@@ -141,29 +141,50 @@ const translations = {
     "about.partners.label": "Մեր գործընկերները",
     "about.partners.foot": "IATA-ի կողմից հավատարմագրված · 40+ ավիաընկերության հետ պայմանագիր",
 
+    // --- Quick contact strip (between Hero and Services) ---
+    "qc.title": "Արագ կապ",
+    "qc.subtitle": "Մենք պատասխանում ենք 30 րոպեից պակաս ժամկետում։",
+    "qc.cta.wa": "WhatsApp",
+    "qc.cta.call": "Զանգահարել",
+    "qc.cta.form": "Հարցում ուղարկել",
+
     // --- Contact ---
     "contact.eyebrow": "Կապ մեզ հետ",
     "contact.title.a": "Ասեք՝ ուր եք գնում։",
-    "contact.title.b": "Կպատասխանենք արագ։",
+    "contact.title.b": "Կկազմակերպենք արագ։",
     "contact.subtitle":
       "Ոչ զանգերի կենտրոն, ոչ էլ բոտ։ Իրական մարդը կկարդա ձեր հաղորդագրությունն ու կպատասխանի՝ առաջարկներով, գներով և հաջորդող քայլերով։",
     "contact.wa.title": "WhatsApp",
     "contact.wa.sub": "Ամենաարագ եղանակը",
     "contact.ig.sub": "Նաև նայեք մեր նախորդ ուղևորությունները",
     "contact.phone.sub": "Երկ–Շբթ, 10:00–19:00 (UTC+4)",
-    "contact.form.title": "Հարցում գնի մասին",
-    "contact.form.note": "Ուղարկելիս կբացվի WhatsApp՝ ձեր տվյալներով արդեն լրացված։",
+    "contact.form.title": "Եկեք կազմակերպենք!",
+    "contact.form.note": "Ուղարկելիս կբացվի WhatsApp՝ ձեր արդեն իսկ լրացված տվյալներով։",
     "contact.form.name": "Ձեր անունը",
     "contact.form.name.ph": "օրինակ՝ Աննա Հովհաննիսյան",
     "contact.form.dest": "Ուղղություն",
-    "contact.form.dest.ph": "օրինակ՝ Դուբայ կամ «մարտ ամսին տաք տեղ»",
-    "contact.form.dates": "Ամսաթվեր",
-    "contact.form.dates.ph": "օրինակ՝ մարտի 15–22",
+    "contact.form.dest.ph": "օր.՝ Դուբայ կամ «մարտ ամսին տաք տեղ»",
+    "contact.form.startDate": "Մեկնման ամսաթիվ",
+    "contact.form.startDate.ph": "Ընտրել օրացույցից",
+    "contact.form.endDate": "Վերջնա",
+    "contact.form.endDate.ph": "Ընտրել օրացույցից",
+    "contact.form.nights": "Օրերի քանակը",
+    "contact.form.nights.ph": "Օրերի քանակը",
+    "contact.form.people": "Քանի անձի համար (եթե կան երեխաներ, նշել տարիքները)",
+    "contact.form.people.ph": "օր.՝ 2 մեծահասակ, 1 երեխա (5 տարեկան)",
+    "contact.form.meals": "Սնունդ",
+    "contact.form.meals.ph": "օր.՝ all-inclusive, նախաճաշով, ճկուն",
+    "contact.form.hotel": "Նախընտրած հյուրանոց",
+    "contact.form.hotel.ph": "օր.՝ 4–5★ ծովափին",
+    "contact.form.budget": "Գնային սահման մոտավորապես",
+    "contact.form.budget.ph": "օր.՝ մոտ $1500/անձ կամ մոտ 150,000 ՀՀ դրամ",
+    "contact.form.budget.ph.mobile": "$1500/անձ",
     "contact.form.msg": "Հավելյալ տեղեկություն",
     "contact.form.msg.ph": "Ճանապարհորդների քանակ, բյուջե, կարևոր մանրամասներ...",
     "contact.form.submit": "Ուղարկել WhatsApp-ով",
+    "common.optional": "ոչ պարտադիր",
     "contact.wa.prefill":
-      "Բարև ձեզ, ուզում եմ գնի հարցում անել։\n\nԱնուն՝ {name}\nՈւղղություն՝ {destination}\nԱմսաթվեր՝ {dates}\n\n{message}",
+      "Բարև ձեզ, ուզում եմ գնի հարցում անել։\n\nՈւղղություն՝ {destination}\nՀաշվելի ամսաթիվ՝ {startDate}\nՀաշվարկի ամսաթիվ՝ {endDate}\nԳիշերների քանակ՝ {nights}\nԱնձինք՝ {people}\nՍնունդ՝ {meals}\nՆախընտրած հյուրանոց՝ {hotel}\nԲյուջե՝ {budget}",
 
     // --- Footer ---
     "footer.tagline":
@@ -339,6 +360,13 @@ const translations = {
     "about.partners.label": "We book through",
     "about.partners.foot": "IATA-accredited consolidators · 40+ airline contracts",
 
+    // --- Quick contact strip (between Hero and Services) ---
+    "qc.title": "Quick contact",
+    "qc.subtitle": "We typically reply within 30 minutes.",
+    "qc.cta.wa": "WhatsApp",
+    "qc.cta.call": "Call us",
+    "qc.cta.form": "Send inquiry",
+
     // --- Contact ---
     "contact.eyebrow": "Get in touch",
     "contact.title.a": "Tell us where.",
@@ -355,13 +383,27 @@ const translations = {
     "contact.form.name.ph": "e.g. Anna Hovhannisyan",
     "contact.form.dest": "Destination",
     "contact.form.dest.ph": "e.g. Dubai, or 'somewhere warm in March'",
-    "contact.form.dates": "Dates",
-    "contact.form.dates.ph": "e.g. March 15–22",
+    "contact.form.startDate": "Start date",
+    "contact.form.startDate.ph": "Pick from calendar",
+    "contact.form.endDate": "End date",
+    "contact.form.endDate.ph": "Pick from calendar",
+    "contact.form.nights": "Number of nights",
+    "contact.form.nights.ph": "Select or enter",
+    "contact.form.people": "Number of travelers (if children, include ages)",
+    "contact.form.people.ph": "e.g. 2 adults + 1 child (age 5)",
+    "contact.form.meals": "Meal preference",
+    "contact.form.meals.ph": "e.g. all-inclusive, breakfast included, flexible",
+    "contact.form.hotel": "Hotel preference",
+    "contact.form.hotel.ph": "e.g. 4–5★ beachfront",
+    "contact.form.budget": "Approximate budget",
+    "contact.form.budget.ph": "e.g. around $1500/person or 150,000 AMD",
+    "contact.form.budget.ph.mobile": "օր․՝ $1500/person",
     "contact.form.msg": "Anything else",
     "contact.form.msg.ph": "Travelers, budget range, must-haves...",
     "contact.form.submit": "Send via WhatsApp",
+    "common.optional": "optional",
     "contact.wa.prefill":
-      "Hi Soluna! I'd like a quote.\n\nName: {name}\nDestination: {destination}\nDates: {dates}\n\n{message}",
+      "Hi Soluna! I'd like a quote.\n\nDestination: {destination}\nStart date: {startDate}\nEnd date: {endDate}\nNights: {nights}\nTravelers: {people}\nMeals: {meals}\nHotel: {hotel}\nBudget: {budget}",
 
     // --- Footer ---
     "footer.tagline":

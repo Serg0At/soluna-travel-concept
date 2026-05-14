@@ -91,9 +91,12 @@ export function Hero() {
         </motion.div>
       </div>
 
+      {/* Fades to white now (was cream) because the next section is Contact
+          on bg-white. If you ever put a cream section directly under the
+          hero again, change this fade back to #FBF8F4. */}
       <div
         className="absolute inset-x-0 bottom-0 h-28 pointer-events-none"
-        style={{ background: "linear-gradient(180deg, rgba(251,248,244,0) 0%, #FBF8F4 100%)" }}
+        style={{ background: "linear-gradient(180deg, rgba(255,255,255,0) 0%, #FFFFFF 100%)" }}
         aria-hidden
       />
     </section>
