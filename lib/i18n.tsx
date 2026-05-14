@@ -40,7 +40,7 @@ const translations = {
     "hero.subtitle":
       "Չվերթեր, վիզաներ, հյուրանոցներ ու մանրակրկիտ ընտրված փաթեթներ՝ ամբողջը կազմակերպում ենք Երևանից։ Մանր մանրուքները թողեք մեզ՝ դուք պարզապես վայելեք ուղևորությունը։",
     "hero.cta.primary": "Տեսնել առաջիկա տուրերը",
-    "hero.cta.whatsapp": "Գրել WhatsApp-ով",
+    "hero.cta.whatsapp": "Պլանավորել տուրը",
     "hero.trust":
       "✦ Պատասխանում ենք 24 ժամվա ընթացքում · Մեր պատասխանատվությամբ · IATA-ի գործընկեր ավիաընկերություններ",
 
@@ -179,10 +179,10 @@ const translations = {
     "contact.form.meals": "Սնունդ",
     "contact.form.meals.ph": "օր.՝ all-inclusive, նախաճաշով, ճկուն",
     "contact.form.hotel": "Նախընտրած հյուրանոց",
-    "contact.form.hotel.ph": "օր.՝ 4–5★ ծովափին",
+    "contact.form.hotel.ph": "օր.՝ 4–5★, ծովափին, 'Atlantis'",
     "contact.form.budget": "Գնային սահման մոտավորապես",
     "contact.form.budget.ph": "օր.՝ մոտ $1500/անձ կամ մոտ 150,000 ՀՀ դրամ",
-    "contact.form.budget.ph.mobile": "$1500/անձ",
+    "contact.form.budget.ph.mobile": "$1500/անձ կամ ֏150.000",
     "contact.form.msg": "Հավելյալ տեղեկություն",
     "contact.form.msg.ph": "Ճանապարհորդների քանակ, բյուջե, կարևոր մանրամասներ...",
     "contact.form.submit": "Ուղարկել WhatsApp-ով",
@@ -273,7 +273,7 @@ const translations = {
     "hero.subtitle":
       "Flights, visas, hotels and curated packages — booked end-to-end from Yerevan. We sweat the small stuff so you don't.",
     "hero.cta.primary": "See upcoming tours",
-    "hero.cta.whatsapp": "Message on WhatsApp",
+    "hero.cta.whatsapp": "Plan your tour",
     "hero.trust": "✦ Reply within 24h · No obligation · IATA-partner airlines",
 
     // --- Services ---
@@ -409,7 +409,7 @@ const translations = {
     "contact.form.meals": "Meal preference",
     "contact.form.meals.ph": "e.g. all-inclusive, breakfast included, flexible",
     "contact.form.hotel": "Hotel preference",
-    "contact.form.hotel.ph": "e.g. 4–5★ beachfront",
+    "contact.form.hotel.ph": "e.g. 4–5★, beachfront, 'Atlantis'",
     "contact.form.budget": "Approximate budget",
     "contact.form.budget.ph": "e.g. around $1500/person or 150,000 AMD",
     "contact.form.budget.ph.mobile": "օր․՝ $1500/person",

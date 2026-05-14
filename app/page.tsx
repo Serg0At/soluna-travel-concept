@@ -13,13 +13,10 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        {/* Contact pulled up to the #2 slot — visitors see the inquiry form
-            almost immediately, before scrolling through marketing sections.
-            Lead capture > exploration for this client. */}
-        <Contact />
         <Services />
         <Destinations />
         <About />
+        <Contact />
       </main>
       <Footer />
       <WhatsAppFloat />

@@ -38,6 +38,7 @@ export function Contact() {
     hotel: "",
     budget: "",
   });
+  const isFormComplete = Object.values(form).every((value) => value.trim());
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -48,6 +49,8 @@ export function Contact() {
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    if (!isFormComplete) return;
+
     const startDate = formatStartDate(form.startDay, form.startMonth, locale);
     const text = encodeURIComponent(
       t("contact.wa.prefill", {
@@ -159,7 +162,6 @@ export function Contact() {
 
             <div className="mt-6 space-y-4">
               <Field
-                t={t as any}
                 label={t("contact.form.dest")}
                 value={form.destination}
                 onChange={(v) => setForm({ ...form, destination: v })}
@@ -182,7 +184,6 @@ export function Contact() {
                 placeholder={t("contact.form.nights.ph")}
               />
               <Field
-                t={t as any}
                 label={t("contact.form.people")}
                 value={form.people}
                 onChange={(v) => setForm({ ...form, people: v })}
@@ -191,33 +192,29 @@ export function Contact() {
                 rows={2}
               />
               <Field
-                t={t as any}
                 label={t("contact.form.meals")}
                 value={form.meals}
                 onChange={(v) => setForm({ ...form, meals: v })}
                 placeholder={t("contact.form.meals.ph")}
               />
               <Field
-                t={t as any}
                 label={t("contact.form.hotel")}
                 value={form.hotel}
                 onChange={(v) => setForm({ ...form, hotel: v })}
                 placeholder={t("contact.form.hotel.ph")}
-                optional
               />
               <Field
-                t={t as any}
                 label={t("contact.form.budget")}
                 value={form.budget}
                 onChange={(v) => setForm({ ...form, budget: v })}
                 placeholder={isMobile ? t("contact.form.budget.ph.mobile") : t("contact.form.budget.ph")}
-                optional
               />
             </div>
 
             <button
               type="submit"
-              className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-sun hover:bg-sun-deep transition-colors text-white px-6 py-3.5 rounded-full font-semibold"
+              disabled={!isFormComplete}
+              className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-sun hover:bg-sun-deep transition-colors text-white px-6 py-3.5 rounded-full font-semibold disabled:cursor-not-allowed disabled:bg-muted/40 disabled:text-white/70"
             >
               {t("contact.form.submit")}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -232,34 +229,30 @@ export function Contact() {
 }
 
 function Field({
-  t,
   label,
   value,
   onChange,
   placeholder,
   multiline,
   rows = 2,
-  optional,
 }: {
-  t: (key: string, vars?: Record<string, string>) => string;
   label: string;
   value: string;
   onChange: (v: string) => void;
   placeholder?: string;
   multiline?: boolean;
   rows?: number;
-  optional?: boolean;
 }) {
   return (
     <div>
       <label className="block text-xs uppercase tracking-[0.2em] text-muted font-semibold mb-2">
         {label}
-        {optional && <span className="text-muted/60 font-normal ml-1">({t("common.optional")})</span>}
       </label>
       {multiline ? (
         <textarea
           value={value}
           onChange={(e) => onChange(e.target.value)}
+          required
           rows={rows}
           placeholder={placeholder}
           className="w-full px-4 py-3 rounded-xl bg-white border border-brand/15 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 text-ink placeholder:text-muted/60 resize-none"
@@ -269,6 +262,7 @@ function Field({
           type="text"
           value={value}
           onChange={(e) => onChange(e.target.value)}
+          required
           placeholder={placeholder}
           className="w-full px-4 py-3 rounded-xl bg-white border border-brand/15 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 text-ink placeholder:text-muted/60"
         />
@@ -351,6 +345,7 @@ function DateField({
           value={day}
           onChange={(e) => onChange(e.target.value, month)}
           aria-label={t("contact.form.startDay")}
+          required
           className="w-full px-4 py-3 rounded-xl bg-white border border-brand/15 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 text-ink"
         >
           <option value="">{t("contact.form.startDay.ph")}</option>
@@ -370,6 +365,7 @@ function DateField({
             onChange(nextDay, nextMonth);
           }}
           aria-label={t("contact.form.startMonth")}
+          required
           className="w-full px-4 py-3 rounded-xl bg-white border border-brand/15 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 text-ink"
         >
           <option value="">{t("contact.form.startMonth.ph")}</option>
@@ -426,6 +422,7 @@ function NightsSelector({
         title={label}
         min="1"
         max="365"
+        required
         className="w-full px-4 py-3 rounded-xl bg-white border border-brand/15 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 text-ink placeholder:text-muted/60"
       />
     </div>

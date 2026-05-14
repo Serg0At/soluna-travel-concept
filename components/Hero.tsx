@@ -68,9 +68,7 @@ export function Hero() {
               </svg>
             </a>
             <a
-              href="https://wa.me/37491341143"
-              target="_blank"
-              rel="noopener"
+              href="#contact"
               className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white px-7 py-4 rounded-full font-semibold"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -91,12 +89,10 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Fades to white now (was cream) because the next section is Contact
-          on bg-white. If you ever put a cream section directly under the
-          hero again, change this fade back to #FBF8F4. */}
+      {/* Fade into the cream Services section. */}
       <div
         className="absolute inset-x-0 bottom-0 h-28 pointer-events-none"
-        style={{ background: "linear-gradient(180deg, rgba(255,255,255,0) 0%, #FFFFFF 100%)" }}
+        style={{ background: "linear-gradient(180deg, rgba(251,248,244,0) 0%, #FBF8F4 100%)" }}
         aria-hidden
       />
     </section>
